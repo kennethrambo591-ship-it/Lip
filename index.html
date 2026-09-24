@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#087f8c">
+<meta name="description" content="Lipid Profile Calculator - VLDL, LDL and Total Cholesterol">
+<title>Lipid Profile Calculator</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+  <div><h1>🧪 Lipid Profile Calculator</h1><p>TG • VLDL • HDL • LDL • Total Cholesterol</p></div>
+  <button id="installBtn" class="btn light hidden">Install App</button>
+</header>
+
+<main class="container">
+<section class="card">
+<h2>Enter Values</h2>
+<p class="hint">Enter values in <b>mg/dL</b>. Leave one of TC, VLDL or LDL blank to calculate it.</p>
+
+<div class="grid">
+<label>Total Cholesterol (TC)
+<input id="tc" type="number" min="0" step="0.1" placeholder="e.g. 200">
+</label>
+<label>HDL Cholesterol
+<input id="hdl" type="number" min="0" step="0.1" placeholder="e.g. 50">
+</label>
+<label>Triglycerides (TG)
+<input id="tg" type="number" min="0" step="0.1" placeholder="e.g. 150">
+</label>
+<label>VLDL
+<input id="vldl" type="number" min="0" step="0.1" placeholder="TG ÷ 5">
+</label>
+<label>LDL Cholesterol
+<input id="ldl" type="number" min="0" step="0.1" placeholder="TC − HDL − VLDL">
+</label>
+</div>
+
+<div class="actions">
+<button id="calculate" class="btn primary">Calculate Report</button>
+<button id="clear" class="btn secondary">Clear</button>
+</div>
+<div id="message" class="message"></div>
+</section>
+
+<section id="results" class="card hidden">
+<div class="title-row"><h2>Calculated Report</h2><span class="badge">RESULT</span></div>
+<div class="results">
+<div class="result"><span>Triglycerides</span><b id="rTG">—</b><small>mg/dL</small></div>
+<div class="result"><span>VLDL</span><b id="rVLDL">—</b><small>mg/dL</small></div>
+<div class="result"><span>Total Cholesterol</span><b id="rTC">—</b><small>mg/dL</small></div>
+<div class="result"><span>HDL</span><b id="rHDL">—</b><small>mg/dL</small></div>
+<div class="result"><span>LDL</span><b id="rLDL">—</b><small>mg/dL</small></div>
+</div>
+
+<div class="formula">
+<h3>Calculation Formula</h3>
+<p><b>VLDL = Triglycerides ÷ 5</b></p>
+<p><b>LDL = Total Cholesterol − HDL − VLDL</b></p>
+<p><b>Total Cholesterol = LDL + HDL + VLDL</b></p>
+</div>
+<button id="print" class="btn primary">Print / Save Report</button>
+</section>
+
+<section class="card">
+<h2>Quick Guide</h2>
+<ol>
+<li>Enter HDL and triglycerides.</li>
+<li>If VLDL is blank, the app estimates VLDL = TG ÷ 5.</li>
+<li>Enter either Total Cholesterol or LDL.</li>
+<li>The missing value is calculated automatically.</li>
+<li>If both TC and LDL are supplied, the app checks their mathematical consistency.</li>
+</ol>
+</section>
+
+<div class="notice">
+<b>Educational / laboratory note:</b> This calculator is a calculation aid, not a diagnostic tool.
+The TG÷5 VLDL estimate and Friedewald-style LDL calculation have limitations. Follow the laboratory
+report and clinical guidance. Direct LDL or another validated method may be needed in some situations,
+especially when triglycerides are very high.
+</div>
+</main>
+
+<footer>Lipid Profile Calculator • Educational MLT Tool</footer>
+<script src="app.js"></script>
+</body>
+</html>
