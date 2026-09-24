@@ -1,0 +1,11 @@
+{
+  "name": "Lipid Profile Calculator",
+  "short_name": "Lipid Calculator",
+  "description": "Educational calculator for TG, VLDL, HDL, LDL and Total Cholesterol.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#eef7f8",
+  "theme_color": "#087f8c",
+  "orientation": "portrait-primary",
+  "icons": []
+}
